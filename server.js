@@ -5,6 +5,8 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
 
+const mongoURI = process.env.MONGODB_URI || "mongodb://localhost/nyt-scraper";
+
 // Requiring Note and Article models
 const Note = require("./models/Note.js");
 const Article = require("./models/Article.js");
@@ -46,11 +48,8 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Database configuration with mongoose
-if (MONGODB_URI) {
-    mongoose.connect(MONGODB_URI);
-} else {
-    mongoose.connect("mongodb://localhost/nyt-scraper");
-}
+mongoose.connect(mongoURI);
+
 const db = mongoose.connection;
 
 // Show any mongoose errors
