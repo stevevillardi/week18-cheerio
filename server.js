@@ -46,7 +46,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Database configuration with mongoose
-if (process.env.DBPASS && process.env.DBUSER) {
+if (MONGODB_URI) {
     mongoose.connect(MONGODB_URI);
 } else {
     mongoose.connect("mongodb://localhost/nyt-scraper");
