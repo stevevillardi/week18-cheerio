@@ -46,7 +46,11 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/nyt-scraper", { useMongoClient: true });
+if (process.env.DBPASS && process.env.DBUSER) {
+    mongoose.connect(MONGODB_URI);
+} else {
+    mongoose.connect("mongodb://localhost/nyt-scraper");
+}
 const db = mongoose.connection;
 
 // Show any mongoose errors
