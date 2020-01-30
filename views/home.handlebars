@@ -1,0 +1,32 @@
+<!--Homepage-->
+<div class="container-fluid px-0">
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Mongo Scraper</h1>
+        <p class="lead text-center">New York Times edition.</p>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="col-md-12">
+        {{#if article}}
+        {{#each article}}
+        <div class="article border rounded px-2 py-2 my-1">
+            <div>
+                <h4>{{title}}</h4>
+            </div>
+            <div>
+                <p> {{this.summary}}</p>
+                <a href={{this.link}} target="_blank">{{this.link}}</a>
+                <br><br>
+                <button type="button" class="btn btn-success save" data-id={{this._id}}>Save Article</button>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <div>
+            <div>
+                <h4 class="text-center">Looks like there is no new articles, try scraping some new ones!</h4>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>

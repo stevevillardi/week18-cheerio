@@ -1,0 +1,40 @@
+.jumbotron {
+    background-image: url("../images/jumbo-img.png");
+    background-size: auto;
+    height: 250px;
+    color: white;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    text-align: center;
+}
+
+.modal-header .close {
+    padding: 1rem 1rem;
+    margin: -1rem -1rem -1rem 0;
+}
+.article {
+    background-color: none;
+    border: 1px solid #dee2e6 !important;
+}
+
+.article:hover {
+    background-color: lightblue;
+    border: 1px solid black !important;
+}
+
+.previousNotes {
+    display: inline;
+}

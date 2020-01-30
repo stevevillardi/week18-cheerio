@@ -1,0 +1,38 @@
+<!--Saved Articles Page-->
+<div class="container-fluid px-0">
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Saved Articles</h1>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="col-md-12">
+        {{#if article}}
+        {{#each article}}
+        <div class="article border rounded px-2 py-2 my-1">
+            <div>
+                <h4>{{this.title}}</h4>
+            </div>
+            <div>
+                <p> {{this.summary}}</p>
+                <a href={{this.link}} target="_blank">{{this.link}}</a>
+                <br><br>
+                <button type="button" class="btn btn-success addNote" data-toggle="modal"
+                    data-target="#noteModal{{this._id}}" data-id={{this._id}}>View/Add Notes</button>
+                <button type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <div>
+            <div>
+                <h4 class="text-center">You have no saved articles.</h4>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
+
+<!--Clicked Notes Modal-->
+{{#each article}}
+{{> notes-modal }}
+{{/each}}
